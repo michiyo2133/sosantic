@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/A.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+    <title>แอนิเมชัน</title>
+    <link rel="stylesheet" href="style-work-detail.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/1x/A1.png" alt="The Antic Logo"  />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="work.html">ผลงาน</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
+
+            </ul>
+        </nav>
+         <!-- ปุ่ม Log In -->
+         <div class="login">
+            <div class="login-container">
+                <button class="login-btn" onclick="openModal()">Log In</button>
+            </div>
+        </div>
+        <style>
+            /* Login Button Style */
+.login-container {
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    margin-top: 20px;
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #5f0467, #16075a);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #10034b, #5f0467);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 64, 129, 0.4);
+}
+
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(252, 69, 151, 0.8);
+}
+
+        </style>
+        <style>
+            /* สำหรับ Modal */
+.modal {
+    display: none; /* ซ่อน Modal โดยเริ่มต้น */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งใสแบบมืด */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex; /* แสดง Modal เมื่อมี class "show" */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1b0046, #0b010f); /* พื้นหลังแบบไล่สีม่วงชมพู */
+    border-radius: 15px;
+    padding: 20px 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* ปุ่มปิด */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 3.5rem;
+    color: #ff4081;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+/* แบบฟอร์ม */
+#auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+}
+
+#auth-form button {
+    background: linear-gradient(135deg, #ff4081, #a745fc);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#auth-form button:hover {
+    background: linear-gradient(135deg, #a745fc, #ff4081);
+}
+
+/* ปุ่ม Social Login */
+.social-login button {
+    background: #1c0b2c;
+    border: 2px solid #a745fc;
+    color: #fff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.social-login button:hover {
+    background: #ff0080;
+    border-color: #ff4081;
+}
+
+/* ลิงก์เปลี่ยนเป็นสมัครสมาชิก */
+.switch-link {
+    color: #a745fc;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.switch-link:hover {
+    color: #ff4081;
+}
+
+        </style>
+    </header>
+    
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">เข้าสู่ระบบ</h2>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+                <input type="password" id="password" placeholder="รหัสผ่าน" required>
+                <button type="submit" onclick="submitLogin(event)">เข้าสู่ระบบ</button> 
+            </form>
+            <div class="social-login">
+                <button onclick="goToPage()">Facebook</button>
+                <button onclick="goToPage()">Google</button>
+            </div>
+            <p>ยังไม่มีบัญชี? <span class="switch-link" onclick="switchToSignup()">สมัครสมาชิก</span></p>
+           
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const authForm = document.getElementById('auth-form');
+
+        
+    
+        function openModal() {
+            modal.classList.add('show');
+        }
+    
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+    
+        function switchToSignup() {
+            modalTitle.textContent = 'สมัครสมาชิก';
+            authForm.innerHTML = `
+                <input type="text" id="signup-username" placeholder="ชื่อผู้ใช้" required>
+                <input type="password" id="signup-password" placeholder="รหัสผ่าน" required>
+                <input type="password" id="confirm-password" placeholder="ยืนยันรหัสผ่าน" required>
+                <button type="submit" onclick="submitSignup(event)">สมัครสมาชิก</button>
+            `;
+            
+        }
+        function submitLogin(event) {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username && password) {
+        alert('เข้าสู่ระบบสำเร็จ!');
+        window.location.href = 'indexL.html'; // ลิงก์ไปหน้าหลัก
+    } else {
+        alert('กรุณากรอกชื่อผู้ใช้และรหัสผ่าน');
+    }
+}
+
+// ส่งข้อมูลสมัครสมาชิก
+function submitSignup(event) {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (username && password && confirmPassword) {
+        if (password === confirmPassword) {
+            alert('สมัครสมาชิกสำเร็จ!');
+            window.location.href = 'indexL.html'; // ลิงก์ไปหน้าหลัก
+        } else {
+            alert('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน');
+        }
+    } else {
+        alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+    }
+}
+function goToPage() {
+    window.location.href = "indexL.html";
+}
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+        
+    </script>
+    </header>
+    <div class="breadcrumb">
+        <a href="index.html">หน้าหลัก</a>
+        <span>/</span>
+        <a href="work.html">ผลงาน</a>
+        <span>/</span>
+        <span class="current">3D</span>
+    </div>
+
+    <main class="work-content">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="img/3d.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="span"><a href="" target="_blank" >ฉาก3D : แกนกลางคอมพิวเตอร์</a></div>
+        <h1>3D background</h1>
+        <p>งานชิ้นนี้สร้างขึ้นภายใต้แนวคิดของ "เมืองแห่งอนาคต" ที่สะท้อนถึงความก้าวหน้าทางเทคโนโลยีและการออกแบบเชิงอุตสาหกรรม</p>
+        <h1>แรงบันดาลใจ</h1>
+        <p>แรงบันดาลใจได้รับอิทธิพลจากงานแนวไซไฟ (Sci-Fi) และไซเบอร์พังค์ (Cyberpunk) ที่เน้นการผสมผสานระหว่างเทคโนโลยีและเมืองอุตสาหกรรม</p>
+            <h1>โปรแกรมที่ใช้</h1>
+            <img src="img/pro2.png" alt="บทความ 1">
+            <h3>Blender</h3>
+            <p> เครื่องมือที่ครอบคลุมทั้งการสร้างโมเดล 3D, การทำอนิเมชัน, การสร้างเกม, และกราฟิกแบบความละเอียดสูง โปรแกรมมีเฉพาะ PC</p>
+            
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="mailto:example@email.com" aria-label="Email">
+                    <img src="img/gmail.png" alt="Email">
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="img/facebook.png" alt="Facebook">
+                </a>
+                <a href="#" target="_blank" aria-label="phone">
+                    <img src="img/phone.png" alt="Facebook">
+                </a>
+            </div>
+
+            
+    
+            <!-- Footer Menu -->
+            <ul class="footer-menu">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="work.html">ผลงาน</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
+            </ul>
+    
+            <!-- Logo -->
+            <div class="footer-logo">
+                <img src="img/1x/logo4.png" alt="Logo" />
+            </div>
+    
+            <!-- Footer Text -->
+            <p class="footer-text">© 2024 The Antic. All rights reserved.</p>
+    
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="#">Privacy Notice</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Preferences</a>
+            </div>
+        </div>
+    </footer>
+    <style>
+        * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+   
+   /* Variables for Responsiveness */
+   :root {
+       --font-size-large: 2rem;
+       --font-size-medium: 1.2rem;
+       --font-size-small: 1rem;
+       --padding-large: 20px;
+       --padding-medium: 10px;
+       --padding-small: 5px;
+   }
+        /* Responsive Container */
+   .container {
+       width: 100%;
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: var(--padding-large);
+       display: flex;
+       flex-direction: column;
+       gap: var(--padding-medium);
+   }
+   /* Media Queries for All Screens */
+   @media (max-width: 768px) {
+       :root {
+           --font-size-large: 1.5rem;
+           --font-size-medium: 1rem;
+           --padding-large: 15px;
+           --padding-medium: 8px;
+       }
+   
+       header {
+           flex-direction: column;
+       }
+   
+       @media (max-width: 768px) {
+       header nav ul {
+           justify-content: center;
+           display: flex;
+           flex-direction: column;
+       }
+   }
+   
+       .hero-section h1 {
+           font-size: 1.8rem;
+       }
+   }
+   
+   @media (max-width: 480px) {
+       :root {
+           --font-size-large: 1.2rem;
+           --font-size-medium: 0.9rem;
+           --padding-large: 10px;
+           --padding-medium: 5px;
+       }
+   
+       .hero-section h1 {
+           font-size: 1.5rem;
+       }
+   
+       footer {
+           font-size: 0.9rem;
+       }
+   }
+   .hero-section h1 {
+       font-size: var(--font-size-large);
+       margin-bottom: var(--padding-medium);
+   }
+   
+   .hero-section p {
+       font-size: var(--font-size-medium);
+   }
+   
+       </style>
+</body>
+<script>
+    function updateCartCount() {
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+const cartLink = document.querySelector(".cart-link");
+if (cartLink) {
+    cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+}
+}
+
+// เรียกใช้ฟังก์ชันเมื่อโหลดหน้า
+document.addEventListener("DOMContentLoaded", () => {
+updateCartCount();
+});
+function getCart() {
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// ฟังก์ชันจัดการสินค้าในตะกร้า
+function getCart() {
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCartCount() {
+const cart = getCart();
+const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+const cartLink = document.querySelector(".cart-link");
+if (cartLink) {
+    cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+}
+}
+
+// เรียกใช้เมื่อโหลดหน้า
+document.addEventListener("DOMContentLoaded", () => {
+updateCartCount();
+});
+function goToPaymentPage(products) {
+const totalAmount = products.reduce((total, item) => total + item.price * item.quantity, 0);
+localStorage.setItem("paymentProducts", JSON.stringify(products));
+localStorage.setItem("totalAmount", totalAmount);
+window.location.href = "payment.html";
+}
+document.addEventListener("DOMContentLoaded", () => {
+const products = JSON.parse(localStorage.getItem("paymentProducts")) || [];
+const totalAmount = localStorage.getItem("totalAmount") || 0;
+const productList = document.getElementById("product-list");
+const totalElement = document.getElementById("total-amount");
+
+products.forEach((product) => {
+    const item = document.createElement("div");
+    item.textContent = `${product.name} - จำนวน: ${product.quantity} - ราคา: ฿${product.price * product.quantity}`;
+    productList.appendChild(item);
+});
+
+totalElement.textContent = `฿${totalAmount}`;
+});
+</script>
+</html>

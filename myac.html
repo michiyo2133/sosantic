@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="th"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/A.png">
+    <title>the antic</title>
+    <link rel="stylesheet" href="style-account.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <a href="indexL.html">
+                <img src="img/1x/A1.png" alt="The Antic Logo"  />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indexL.html">หน้าหลัก</a></li>
+                <li><a href="articlesL.html">บทความ</a></li>
+                <li><a href="workL.html">ผลงาน</a></li>
+                <li><a href="productsL.html">สินค้า</a></li>
+                <li><a href="aboutL.html">เกี่ยวกับเรา</a></li>
+                <li><a href="contactL.html">ติดต่อเรา</a></li>
+                <a href="cart.html" class="cart-link">ตะกร้าสินค้า (0)</a>
+
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <a href="#" class="user-toggle">
+                <img src="img/user.png" alt="User Icon" style="width: 24px; height: 24px;">
+                ผู้ใช้งาน
+            </a>
+            <ul class="user-dropdown">
+                <li><a href="myac.html">บัญชีของฉัน</a></li>
+                <li><a href="tracking.html">ติดตามพัสดุ</a></li>
+                <li><a href="index.html">ออกจากระบบ</a></li>
+            </ul>
+        </div>
+        
+        <style>
+            .user-menu {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    border: none; /* ไม่มีขอบ */
+    padding: 0;
+    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
+}
+
+.user-menu a {
+    text-decoration: none; /* ลบขีดเส้นใต้ลิงก์ */
+    display: flex;
+    align-items: center;
+    color: #fff; /* สีข้อความ */
+    font-size: 16px; /* ขนาดข้อความ */
+    gap: 10px; /* ช่องว่างระหว่างไอคอนกับข้อความ */
+}
+
+.user-menu a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+
+.user-icon img {
+    width: 24px; /* ขนาดไอคอน */
+    height: 24px; /* ขนาดไอคอน */
+    object-fit: cover; /* ปรับรูปให้พอดีกับขนาด */
+}
+
+.user-text {
+    font-size: 10px;
+    font-weight: 500;
+}
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%; /* ดึงให้เริ่มจากกึ่งกลาง */
+    transform: translateX(-50%); /* ย้ายกลับมาที่กึ่งกลาง */
+    background-color: #111;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 200px; /* เพิ่มความกว้างขั้นต่ำ */
+}
+
+.user-dropdown li {
+    padding: 15px 20px; /* เพิ่มระยะห่างระหว่างข้อความกับขอบ */
+}
+
+.user-dropdown li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 16px; /* เพิ่มขนาดตัวอักษร */
+}
+
+.user-dropdown li a:hover {
+    background-color: #333;
+}
+        </style>
+        
+    </header>
+    <div class="breadcrumb">
+        <a href="indexL.html">หน้าหลัก</a>
+        <span>/</span>
+        <a href="#">ผู้ใช้งาน</a>
+        <span>/</span>
+        <span class="current">บัญชีของฉัน</span>
+    </div>
+    <div class="content-wrapper">
+        <div class="profile-container">
+            <h1>บัญชีของฉัน</h1>
+            <!-- เนื้อหาอื่นในฟอร์ม -->
+            <div class="profile-photo">
+                <div class="photo-container">
+                    <img src="img/ae-GISELLE-1-533x800.jpg" alt="Profile Picture">
+                    <div class="edit-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <form class="profile-form">
+                <div class="form-group">
+                    <label for="username">ชื่อผู้ใช้</label>
+                    <input type="text" id="username" value="thananphontk">
+                </div>
+                <div class="form-group">
+                    <label for="email">อีเมล</label>
+                    <input type="email" id="email" value="example@gmail.com">
+                    <a href="#" class="edit-link">เปลี่ยน</a>
+                </div>
+                <div class="form-group">
+                    <label for="phone">หมายเลขโทรศัพท์</label>
+                    <input type="text" id="phone" value="0812345678">
+                    <a href="#" class="edit-link">เปลี่ยน</a>
+                </div>
+                <div class="form-group date-group">
+                    <label>วัน/เดือน/ปี เกิด</label>
+                    <select>
+                        <option>วัน</option>
+                    </select>
+                    <select>
+                        <option>เดือน</option>
+                    </select>
+                    <select>
+                        <option>ปี</option>
+                    </select>
+                </div>
+                <button type="button" class="save-button" onclick="saveProfile()">บันทึก</button>
+                
+            </form>
+        </div>
+    </div>
+    <!-- ป็อปอัพ -->
+<div id="popup" class="popup hidden">
+    <p>บันทึกโปรไฟล์สำเร็จ!</p>
+</div>
+<script>
+    function saveProfile() {
+    // แสดงป็อปอัพ
+    const popup = document.getElementById('popup');
+    popup.classList.remove('hidden');
+    popup.classList.add('visible');
+
+    // ซ่อนป็อปอัพอัตโนมัติหลัง 3 วินาที
+    setTimeout(() => {
+        popup.classList.remove('visible');
+        popup.classList.add('hidden');
+    }, 3000);
+}
+</script>
+
+<script>
+    function updateCartCount() {
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+const cartLink = document.querySelector(".cart-link");
+if (cartLink) {
+    cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+}
+}
+
+// เรียกใช้ฟังก์ชันเมื่อโหลดหน้า
+document.addEventListener("DOMContentLoaded", () => {
+updateCartCount();
+});
+function getCart() {
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// ฟังก์ชันจัดการสินค้าในตะกร้า
+function getCart() {
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCartCount() {
+const cart = getCart();
+const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+const cartLink = document.querySelector(".cart-link");
+if (cartLink) {
+    cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+}
+}
+
+// เรียกใช้เมื่อโหลดหน้า
+document.addEventListener("DOMContentLoaded", () => {
+updateCartCount();
+});
+function goToPaymentPage(products) {
+const totalAmount = products.reduce((total, item) => total + item.price * item.quantity, 0);
+localStorage.setItem("paymentProducts", JSON.stringify(products));
+localStorage.setItem("totalAmount", totalAmount);
+window.location.href = "payment.html";
+}
+document.addEventListener("DOMContentLoaded", () => {
+const products = JSON.parse(localStorage.getItem("paymentProducts")) || [];
+const totalAmount = localStorage.getItem("totalAmount") || 0;
+const productList = document.getElementById("product-list");
+const totalElement = document.getElementById("total-amount");
+
+products.forEach((product) => {
+    const item = document.createElement("div");
+    item.textContent = `${product.name} - จำนวน: ${product.quantity} - ราคา: ฿${product.price * product.quantity}`;
+    productList.appendChild(item);
+});
+
+totalElement.textContent = `฿${totalAmount}`;
+});
+</script>
+<footer>
+    <div class="footer-container">
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="mailto:example@email.com" aria-label="Email">
+                <img src="img/gmail.png" alt="Email">
+            </a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <img src="img/facebook.png" alt="Facebook">
+            </a>
+            <a href="#" target="_blank" aria-label="phone">
+                <img src="img/phone.png" alt="Facebook">
+            </a>
+        </div>
+
+        
+
+        <!-- Footer Menu -->
+        <ul class="footer-menu">
+            <li><a href="indexL.html">หน้าหลัก</a></li>
+            <li><a href="articlesL.html">บทความ</a></li>
+            <li><a href="workL.html">ผลงาน</a></li>
+            <li><a href="productsL.html">สินค้า</a></li>
+            <li><a href="aboutL.html">เกี่ยวกับเรา</a></li>
+            <li><a href="contactL.html">ติดต่อเรา</a></li>
+        </ul>
+
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="img/1x/logo4.png" alt="Logo" />
+        </div>
+
+        <!-- Footer Text -->
+        <p class="footer-text">© 2024 The Antic. All rights reserved.</p>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+            <a href="#">Privacy Notice</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Preferences</a>
+        </div>
+    </div>
+</footer>
+<style>
+    * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* Variables for Responsiveness */
+:root {
+   --font-size-large: 2rem;
+   --font-size-medium: 1.2rem;
+   --font-size-small: 1rem;
+   --padding-large: 20px;
+   --padding-medium: 10px;
+   --padding-small: 5px;
+}
+    /* Responsive Container */
+.container {
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: var(--padding-large);
+   display: flex;
+   flex-direction: column;
+   gap: var(--padding-medium);
+}
+/* Media Queries for All Screens */
+@media (max-width: 768px) {
+   :root {
+       --font-size-large: 1.5rem;
+       --font-size-medium: 1rem;
+       --padding-large: 15px;
+       --padding-medium: 8px;
+   }
+
+   header {
+       flex-direction: column;
+   }
+
+   @media (max-width: 768px) {
+   header nav ul {
+       justify-content: center;
+       display: flex;
+       flex-direction: column;
+   }
+}
+
+   .hero-section h1 {
+       font-size: 1.8rem;
+   }
+}
+
+@media (max-width: 480px) {
+   :root {
+       --font-size-large: 1.2rem;
+       --font-size-medium: 0.9rem;
+       --padding-large: 10px;
+       --padding-medium: 5px;
+   }
+
+   .hero-section h1 {
+       font-size: 1.5rem;
+   }
+
+   footer {
+       font-size: 0.9rem;
+   }
+}
+.hero-section h1 {
+   font-size: var(--font-size-large);
+   margin-bottom: var(--padding-medium);
+}
+
+.hero-section p {
+   font-size: var(--font-size-medium);
+}
+
+   </style>
+    </body>
+    </html>
+    

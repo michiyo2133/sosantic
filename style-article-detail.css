@@ -1,0 +1,290 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-color: #000;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:linear-gradient(to right, #04050d, #1f253a);
+    padding: 1rem 2rem;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.logo img {
+    width: 100px; /* กำหนดความกว้าง */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+header nav  a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+header .login a {
+    background: #04050d;
+    color: #b700ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Sections */
+#home {
+    text-align: center;
+    background: linear-gradient(#04050d, #1f253a);
+    color: white;
+    padding: 2rem;
+}
+
+
+.blog-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+.portfolio-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+/*ฟ้อนข้อควาาม*/
+body {
+    font-family: 'prompt', sans-serif;
+    font-style: normal;
+  }
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+header .back-link {
+    color: #a76dfb;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid #a76dfb;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header .back-link:hover {
+    background-color: #a76dfb;
+    color: #0e0e1f;
+}
+
+.article-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.article-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.article-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #cfcfff;
+}
+footer {
+    background-color: #111; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    padding: 20px 0; /* ระยะห่างด้านบนและล่าง */
+    width: 100%; /* ให้เต็มความกว้างหน้าจอ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    font-family: 'Prompt', sans-serif; /* ฟอนต์ภาษาไทย */
+    position: relative; /* ให้ฟุตเตอร์อยู่ตามการจัดตำแหน่งปกติ */
+}
+
+.footer-container {
+    max-width: 100%; /* ให้เต็มความกว้าง */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    padding: 0 20px; /* เพิ่มระยะห่างด้านซ้าย-ขวา */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* ระยะห่างระหว่างแต่ละส่วน */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.social-icons img {
+    width: 30px; /* ขนาดไอคอน */
+    height: 30px;
+    filter: none/* ทำให้เป็นสีขาว */
+   
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* ขยายเมื่อ Hover */
+    /* เปลี่ยนสี */
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #ff4081; /* สีเมื่อ Hover */
+}
+
+.footer-logo img {
+    width: 100px; /* ขนาดโลโก้ */
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ Hover */
+}
+.span {
+    color: #7e7e7e;
+    text-align: right;
+    
+}
+.span a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+a {
+    text-decoration: none;
+    color: gainsboro;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2d2d44, #1f253a);
+    border-radius: 5px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #b700ff;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #aaa;
+}
+
+.breadcrumb .current {
+    color: #ff6ec7;
+    font-weight: bold;
+}
+.text-box {
+    position: relative;
+    max-width: 800px; /* กำหนดความกว้าง */
+    margin: 20px auto; /* จัดให้อยู่ตรงกลาง */
+    padding: 20px; /* เพิ่มพื้นที่ภายใน */
+    background: linear-gradient(135deg, #1c0b2c, #2a0730); /* พื้นหลังไล่สี */
+    color: #fff; /* สีข้อความ */
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.2rem; /* ขนาดข้อความ */
+    border: 2px solid rgba(255, 64, 129, 0.5); /* ขอบ */
+    border-radius: 15px; /* มุมโค้งมน */
+    box-shadow: 0 8px 15px rgba(255, 64, 129, 0.3), 0 4px 10px rgba(0, 0, 0, 0.5); /* เงา */
+    text-align: left; /* จัดข้อความให้อยู่ตรงกลาง */
+    overflow: hidden; /* ป้องกันเนื้อหาเกิน */
+    transition: all 0.3s ease-in-out; /* เอฟเฟกต์เวลา hover */
+}
+
+.text-box:hover {
+    box-shadow: 0 10px 20px rgba(255, 64, 129, 0.5), 0 6px 15px rgba(0, 0, 0, 0.6); /* เพิ่มเงาเมื่อ hover */
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+    border-color: #ff4081; /* เปลี่ยนสีขอบ */
+}
+.text-box1 {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #1c0b2c, #2a0730);
+    color: #fff;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.2rem;
+    border: 2px solid rgba(0, 255, 64, 0.502);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(109, 150, 119, 0.502), 0 4px 10px rgba(109, 168, 115, 0.5);
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.text-box1:hover {
+    box-shadow: 0 10px 20px rgba(0, 255, 64, 0.502), 0 6px 15px rgba(0, 0, 0, 0.6); /* เพิ่มเงาเมื่อ hover */
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+    border-color: rgba(0, 255, 64, 0.502); /* เปลี่ยนสีขอบ */
+}

@@ -1,0 +1,196 @@
+body {
+    font-family: prompt, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:linear-gradient(to right, #04050d, #1f253a);
+    padding: 1rem 2rem;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+header .login a {
+    background: #04050d;
+    color: #b700ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+a { text-decoration: none;
+    color: white;
+
+}
+   
+
+.cart-link, .back-link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: prompt, sans-serif;
+
+}
+
+.product-list, .cart-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.product, .cart-item {
+    background: rgb(60, 0, 106);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    font-family: prompt, sans-serif;
+
+}
+
+.product img, .cart-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+button {
+    background-color: rgb(255, 0, 132);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: prompt, sans-serif;
+
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+.cart-total {
+    margin-top: 20px;
+    text-align: right;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+/* ป็อปอัป */
+#popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#popup-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    max-width: 90%;
+}
+
+.popup h2 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: #ffd000;
+}
+
+#close-popup {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffd500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#close-popup:hover {
+    background-color: #ffd500;
+}
+.cart-item img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover; /* ปรับให้ภาพแสดงตามสัดส่วน */
+}
+header nav  a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2d2d44, #1f253a);
+    border-radius: 5px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #b700ff;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #aaa;
+}
+
+.breadcrumb .current {
+    color: #ff6ec7;
+    font-weight: bold;
+}

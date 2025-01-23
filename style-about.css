@@ -1,0 +1,326 @@
+/* General Styles */
+
+body {
+    font-family: prompt, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-color: #000;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:linear-gradient(to right, #04050d, #1f253a);
+    padding: 1rem 2rem;
+    color: white;
+}
+.logo img {
+    width: 100px; /* กำหนดความกว้าง */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+}
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+header .login a {
+    background: #04050d;
+    color: #b700ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+header nav  a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* Sections */
+#home {
+    text-align: center;
+    background: linear-gradient(#04050d, #1f253a);
+    color: white;
+    padding: 2rem;
+}
+
+
+.blog-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+.portfolio-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+/* About Section */
+.about-us {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.about-image img {
+    border-radius: 15px; /* มุมมน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
+}
+
+.about-content {
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #000; /* สีดำอ่อน */
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: left;
+}
+
+.about-content h2 {
+    color: #ff69b4; /* สีชมพู */
+}
+
+/* Our Team Section */
+.our-team {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.team-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* ระยะห่างระหว่างรูป */
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 200px;
+    flex: 1 1 calc(33.33% - 20px); /* สมาชิก 3 คนแถวแรก */
+    position: relative; /* กำหนดตำแหน่งให้ใช้กับ hover */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    cursor: pointer;
+}
+
+.team-member:nth-child(4),
+.team-member:nth-child(5) {
+    flex: 1 1 calc(50% - 20px); /* สมาชิกแถวล่าง 2 คน */
+}
+
+.member-photo {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* ทำให้เป็นสี่เหลี่ยมจัตุรัส */
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์เวลา hover */
+}
+
+.member-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.member-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.member-photo:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเวลา hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ข้อความตำแหน่งงาน */
+.position-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    transform: translateY(100%); /* ซ่อนข้อความตำแหน่ง */
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover .position-overlay {
+    transform: translateY(0); /* แสดงข้อความตำแหน่ง */
+}
+
+.team-member:hover img {
+    opacity: 0.8; /* ทำให้รูปโปร่งใสเล็กน้อย */
+}
+@media (max-width: 768px) {
+    .team-member {
+        flex: 1 1 calc(50% - 10px); /* ทุกสมาชิกใช้พื้นที่ครึ่งหนึ่ง */
+    }
+
+    .team-member:nth-child(4),
+    .team-member:nth-child(5) {
+        flex: 1 1 calc(50% - 10px); /* สมาชิกในแถวล่างยังคงเท่ากัน */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
+        flex: 1 1 100%; /* ทุกสมาชิกแสดงแบบเต็มแถว */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #111; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    padding: 20px 0; /* ระยะห่างด้านบนและล่าง */
+    width: 100%; /* ให้เต็มความกว้างหน้าจอ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    font-family: 'Prompt', sans-serif; /* ฟอนต์ภาษาไทย */
+    position: relative; /* ให้ฟุตเตอร์อยู่ตามการจัดตำแหน่งปกติ */
+}
+
+.footer-container {
+    max-width: 100%; /* ให้เต็มความกว้าง */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    padding: 0 20px; /* เพิ่มระยะห่างด้านซ้าย-ขวา */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* ระยะห่างระหว่างแต่ละส่วน */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.social-icons img {
+    width: 30px; /* ขนาดไอคอน */
+    height: 30px;
+    filter: none/* ทำให้เป็นสีขาว */
+   
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* ขยายเมื่อ Hover */
+    /* เปลี่ยนสี */
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #ff4081; /* สีเมื่อ Hover */
+}
+
+.footer-logo img {
+    width: 100px; /* ขนาดโลโก้ */
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ Hover */
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2d2d44, #1f253a);
+    border-radius: 5px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #b700ff;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #aaa;
+}
+
+.breadcrumb .current {
+    color: #ff6ec7;
+    font-weight: bold;
+}

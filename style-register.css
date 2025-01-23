@@ -1,0 +1,101 @@
+/* General styling */
+body {
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e, #162447);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    background: #0f3460;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Heading */
+.register-container h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #e94560;
+}
+
+/* Form styling */
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #1a1a2e;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Buttons */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    background: #e94560;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #e94560;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+.form-group input {
+    width: 100%;
+    padding: 5.5px;
+    border: none;
+    border-radius: 5px;
+    background: #1a1a2e;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+}
+header nav  a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}

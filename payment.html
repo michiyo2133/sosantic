@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/A.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+    <title>ชำระเงิน</title>
+    <link rel="stylesheet" href="style-payment.css">
+</head>
+        <div class="payment-container">
+            <h1>ชำระเงิน</h1>
+            <div class="cart-summary">
+                
+                <h2>รายการสินค้า</h2>
+                <ul id="cart-items"></ul>
+                <p>ยอดรวมทั้งหมด: <span id="total-amount"></span></p>
+            </div>
+            <form class="payment-form">
+                <div class="form-group">
+                    <label for="full-name">ชื่อ-นามสกุล:</label>
+                    <input type="text" id="full-name" placeholder="กรอกชื่อ-นามสกุล" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">อีเมล:</label>
+                    <input type="email" id="email" placeholder="กรอกอีเมล" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">ที่อยู่:</label>
+                    <textarea id="address" placeholder="กรอกที่อยู่สำหรับจัดส่ง" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">วิธีชำระเงิน:</label>
+                    <select id="payment-method" required>
+                        <option value="credit-card">บัตรเครดิต/เดบิต</option>
+                        <option value="bank-transfer">โอนเงินผ่านธนาคาร</option>
+                        <option value="cash-on-delivery">เก็บเงินปลายทาง</option>
+                    </select>
+                </div>
+                <button id="confirm-payment">ยืนยันการชำระเงิน</button>
+                
+
+
+            </form>
+        </div>
+        
+        <script>
+        // ดึงข้อมูลสินค้าและยอดรวมจาก LocalStorage
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+        
+        // แสดงสินค้าในหน้าชำระเงิน
+        const cartItemsContainer = document.getElementById('cart-items');
+        let totalAmount = 0;
+        
+        cartData.forEach((item) => {
+        const listItem = document.createElement('li');
+         listItem.textContent = `${item.name} - ราคา: ฿${item.price} x ${item.quantity}`;
+      
+        
+        // คำนวณยอดรวม
+        totalAmount += item.price * item.quantity;
+        });
+        // แสดงยอดรวมในหน้า
+        document.getElementById('total-amount').textContent = `฿${totalAmount}`;
+        </script>
+    </div>
+
+    <script>
+        document.getElementById("confirm-payment").addEventListener("click", (event) => {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+
+    // ลบข้อมูลที่เกี่ยวข้องกับตะกร้าสินค้าใน LocalStorage
+    localStorage.removeItem("cart");
+    localStorage.removeItem("paymentProducts");
+    localStorage.removeItem("totalAmount");
+
+    // ล้างข้อมูลใน HTML
+    const cartItemsContainer = document.getElementById("cart-items");
+    const totalAmountElement = document.getElementById("total-amount");
+
+    if (cartItemsContainer) {
+        cartItemsContainer.innerHTML = ""; // ล้างรายการสินค้าในหน้า HTML
+    }
+
+    if (totalAmountElement) {
+        totalAmountElement.textContent = "฿0"; // ตั้งยอดรวมเป็น 0
+    }
+
+    // เปลี่ยนไปหน้าหลัก หรือหน้าขอบคุณ
+    window.location.href = "indexl.html";
+});
+
+
+
+        </script>
+        <!--มะกี้-->
+ 
+ <script>
+            document.addEventListener('DOMContentLoaded', () => {
+    // ดึงข้อมูลสินค้าจาก LocalStorage
+    const products = JSON.parse(localStorage.getItem('paymentProducts')) || [];
+    const totalAmount = localStorage.getItem('totalAmount') || 0;
+
+    const productList = document.getElementById('cart-items');
+    const totalAmountElement = document.getElementById('total-amount');
+
+    // ตรวจสอบว่าสินค้ามีในตะกร้าหรือไม่
+    if (products.length === 0) {
+        alert("ไม่มีสินค้าที่ซื้อ กรุณาเลือกสินค้าใหม่");
+        window.location.href = "cart.html"; // กลับไปหน้าตะกร้า
+        return;
+    }
+
+    // แสดงรายการสินค้าในหน้าชำระเงิน
+    products.forEach((product) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${product.name} - จำนวน: ${product.quantity} - ราคา: ฿${product.price * product.quantity}`;
+        productList.appendChild(listItem);
+    });
+
+    // แสดงยอดรวมทั้งหมด
+    totalAmountElement.textContent = `฿${totalAmount}`;
+     // ฟังก์ชันยืนยันการชำระเงิน
+     document.getElementById("confirm-payment").addEventListener("click", () => {
+            alert("ชำระเงินสำเร็จ!");
+            localStorage.removeItem("paymentProducts");
+            localStorage.removeItem("totalAmount");
+            window.location.href = "thankyou.html"; // ไปหน้าขอบคุณ
+        });
+
+});
+
+        </script>
+        
+         <script>
+            function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartLink = document.querySelector(".cart-link");
+        if (cartLink) {
+            cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+        }
+    }
+    
+    // เรียกใช้ฟังก์ชันเมื่อโหลดหน้า
+    document.addEventListener("DOMContentLoaded", () => {
+        updateCartCount();
+    });
+    function getCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+    
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    
+    // ฟังก์ชันจัดการสินค้าในตะกร้า
+    function getCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+    
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    
+    function updateCartCount() {
+        const cart = getCart();
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartLink = document.querySelector(".cart-link");
+        if (cartLink) {
+            cartLink.textContent = `ตะกร้าสินค้า (${totalItems})`;
+        }
+    }
+    
+    // เรียกใช้เมื่อโหลดหน้า
+    document.addEventListener("DOMContentLoaded", () => {
+        updateCartCount();
+    });
+    function goToPaymentPage(products) {
+        const totalAmount = products.reduce((total, item) => total + item.price * item.quantity, 0);
+        localStorage.setItem("paymentProducts", JSON.stringify(products));
+        localStorage.setItem("totalAmount", totalAmount);
+        window.location.href = "payment.html";
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+        const products = JSON.parse(localStorage.getItem("paymentProducts")) || [];
+        const totalAmount = localStorage.getItem("totalAmount") || 0;
+        const productList = document.getElementById("product-list");
+        const totalElement = document.getElementById("total-amount");
+    
+        products.forEach((product) => {
+            const item = document.createElement("div");
+            item.textContent = `${product.name} - จำนวน: ${product.quantity} - ราคา: ฿${product.price * product.quantity}`;
+            productList.appendChild(item);
+        });
+    
+        totalElement.textContent = `฿${totalAmount}`;
+    });
+        </script>
+          <style>
+            * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       /* Variables for Responsiveness */
+       :root {
+           --font-size-large: 2rem;
+           --font-size-medium: 1.2rem;
+           --font-size-small: 1rem;
+           --padding-large: 20px;
+           --padding-medium: 10px;
+           --padding-small: 5px;
+       }
+            /* Responsive Container */
+       .container {
+           width: 100%;
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: var(--padding-large);
+           display: flex;
+           flex-direction: column;
+           gap: var(--padding-medium);
+       }
+       /* Media Queries for All Screens */
+       @media (max-width: 768px) {
+           :root {
+               --font-size-large: 1.5rem;
+               --font-size-medium: 1rem;
+               --padding-large: 15px;
+               --padding-medium: 8px;
+           }
+       
+           header {
+               flex-direction: column;
+           }
+       
+           @media (max-width: 768px) {
+           header nav ul {
+               justify-content: center;
+               display: flex;
+               flex-direction: column;
+           }
+       }
+       
+           .hero-section h1 {
+               font-size: 1.8rem;
+           }
+       }
+       
+       @media (max-width: 480px) {
+           :root {
+               --font-size-large: 1.2rem;
+               --font-size-medium: 0.9rem;
+               --padding-large: 10px;
+               --padding-medium: 5px;
+           }
+       
+           .hero-section h1 {
+               font-size: 1.5rem;
+           }
+       
+           footer {
+               font-size: 0.9rem;
+           }
+       }
+       .hero-section h1 {
+           font-size: var(--font-size-large);
+           margin-bottom: var(--padding-medium);
+       }
+       
+       .hero-section p {
+           font-size: var(--font-size-medium);
+       }
+       
+           </style>
+</body>
+</html>

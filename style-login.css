@@ -1,0 +1,140 @@
+/* General styling */
+body {
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #3b0c58, #160f19);
+    color: #fff;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #150127;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Heading */
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Form styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #1a1a2e;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ffffff;
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.options a {
+    color: #ff0090;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button[type="button"] {
+    background: #ff00a2;
+    color: #fff;
+}
+
+.facebook-login {
+    background: #1c0a94;
+    color: #fff;
+}
+
+.facebook-login:hover {
+    background: #2d38b5;
+}
+
+/* Register link */
+.register-link {
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #ff009d;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+.password-container input {
+    width: 100%;
+    padding-right: 10px;
+}

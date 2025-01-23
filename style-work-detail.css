@@ -1,0 +1,273 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-color: #000;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:linear-gradient(to right, #04050d, #1f253a);
+    padding: 1rem 2rem;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+header .login a {
+    background: #04050d;
+    color: #b700ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Sections */
+#home {
+    text-align: center;
+    background: linear-gradient(#04050d, #1f253a);
+    color: white;
+    padding: 2rem;
+}
+
+
+.blog-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+.portfolio-header{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+    color: #ffffff;
+}
+/*ฟ้อนข้อควาาม*/
+body {
+    font-family: 'prompt', sans-serif;
+    font-style: normal;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+header .back-link {
+    color: #a76dfb;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid #a76dfb;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header .back-link:hover {
+    background-color: #a76dfb;
+    color: #0e0e1f;
+}
+
+.work-content {
+    padding: 20px;
+    max-width:1100px;
+    margin: 0 auto;
+    text-align: left;
+    
+}
+
+.work-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.work-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #cfcfff;
+}
+
+.work-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff4081;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+footer {
+    background-color: #111; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    padding: 20px 0; /* ระยะห่างด้านบนและล่าง */
+    width: 100%; /* ให้เต็มความกว้างหน้าจอ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    font-family: 'Prompt', sans-serif; /* ฟอนต์ภาษาไทย */
+    position: relative; /* ให้ฟุตเตอร์อยู่ตามการจัดตำแหน่งปกติ */
+}
+
+.footer-container {
+    max-width: 100%; /* ให้เต็มความกว้าง */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    padding: 0 20px; /* เพิ่มระยะห่างด้านซ้าย-ขวา */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* ระยะห่างระหว่างแต่ละส่วน */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.social-icons img {
+    width: 30px; /* ขนาดไอคอน */
+    height: 30px;
+    filter: none/* ทำให้เป็นสีขาว */
+   
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* ขยายเมื่อ Hover */
+    /* เปลี่ยนสี */
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #ff4081; /* สีเมื่อ Hover */
+}
+
+.footer-logo img {
+    width: 100px; /* ขนาดโลโก้ */
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ Hover */
+}
+.logo img {
+    width: 100px; /* กำหนดความกว้าง */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+}
+header nav  a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2d2d44, #1f253a);
+    border-radius: 5px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #b700ff;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #aaa;
+}
+
+.breadcrumb .current {
+    color: #ff6ec7;
+    font-weight: bold;
+}
+.video-container {
+    position: relative;
+    width: 80%; /* กำหนดความกว้างวิดีโอ */
+    margin: 20px auto; /* จัดให้อยู่ตรงกลาง */
+    top: 20px; /* ดันขึ้นด้านบน */
+    border-radius: 15px; /* มุมโค้งมน */
+    overflow: hidden; /* ป้องกันส่วนเกินออกมานอกขอบ */
+   
+}
+
+.video-container video {
+    width: 100%; /* ขนาดความกว้างวิดีโอ */
+    height: auto; /* ปรับอัตราส่วนให้คงที่ */
+    display: block;
+}
+.span {
+    color: #7e7e7e;
+    text-align: right;
+    margin-top: 20px;
+    
+}
+.span a:hover {
+    color: #ff4081; /* เปลี่ยนสีเมื่อ hover */
+}
+a {
+    text-decoration: none;
+    color: gainsboro;
+}

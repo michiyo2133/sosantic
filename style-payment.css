@@ -1,0 +1,89 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    background: url('img/bgt.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* กรอบสำหรับหน้าชำระเงิน */
+.payment-container {
+    background-color:rgba(31, 30, 114, 0.449);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* หัวข้อ */
+.payment-container h1 {
+    color: rgb(255, 0, 132);
+    margin-bottom: 20px;
+}
+
+/* ฟอร์ม */
+.payment-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.payment-form label {
+    font-size: 14px;
+    color: rgb(255, 0, 132);
+}
+
+.payment-form input, 
+.payment-form textarea, 
+.payment-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+}
+
+.payment-form textarea {
+    resize: none;
+    height: 80px;
+}
+
+.payment-form select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* ปุ่ม */
+.pay-button {
+    background-color: rgb(255, 0, 132);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+    background-color: rgb(255, 0, 132);
+}
+
+/* สรุปยอด */
+.form-summary {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    
+}

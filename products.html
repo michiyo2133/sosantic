@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="th"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/A.png">
+    
+    <title>the antic</title>
+    <link rel="stylesheet" href="style-pr.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <a href="indexL.html">
+                <img src="img/1x/A1.png" alt="The Antic Logo"  />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indexL.html">หน้าหลัก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="work.html">ผลงาน</a></li>
+                <li><a href="products.html">สินค้า</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
+               
+
+            </ul>
+        </nav>
+        <div class="modal hidden" id="login-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+                <h2>เข้าสู่ระบบ</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+                    <input type="password" id="password" placeholder="รหัสผ่าน" required>
+                    <button type="submit">เข้าสู่ระบบ</button>
+                </form>
+            </div>
+        </div>
+       
+    </header>
+    <div class="breadcrumb">
+        <a href="indexL.html">หน้าหลัก</a>
+        <span>/</span>
+        <span class="current">สินค้า</span>
+    </div>
+    <section id="text-content">
+        <h1>สินค้าของเรา</h1>
+          
+    </section>
+    <!-- Products Section -->
+        <!-- สินค้า1 -->
+        <section id="products" class="product-section">
+            <div class="product-card">
+                <div class="product-image">
+                    <model-viewer 
+    
+    alt="3D Model" 
+    ar 
+    auto-rotate 
+    camera-controls 
+    style="width: 0%; height: 0px;">
+</model-viewer>
+<div class="sketchfab-embed-wrapper"> <iframe title="Worm" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300" 
+    src="https://sketchfab.com/models/99851f6a754c4acda40a80267b6415a5/embed?autostart=1&transparent=1"> </iframe> </div>
+                </div>
+                <div class="product-info">
+                    <h3>Worm</h3>
+                    <p>ราคา: ฿500</p>
+                    
+                    <!--เพิ่มปุ่ม-->
+                    <div class="quantity-controls">
+                        <button class="decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="increase">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button 
+                        class="add-to-cart" 
+                        data-id="1" 
+                        data-name="Worm" 
+                        data-price="500" 
+                        data-image="img/n1.png">
+                        เพิ่มลงตะกร้า
+                    </button>
+                        <button class="buy-now" data-id="1" data-name="Worm" data-price="500">ซื้อสินค้า</button>
+                        <button 
+                        class="view-details" 
+                        data-image="img/n1.png" 
+                        data-name="Worm" 
+                        data-description="ดีไซน์ให้สามารถใช้งานเป็นที่เก็บหูฟังได้" 
+                        data-price="500">
+                        ดูรายละเอียดสินค้า
+                    </button>
+                    
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <div class="modal hidden" id="login-modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+                    <h2>เข้าสู่ระบบ</h2>
+                    <form id="login-form" onsubmit="handleLogin(event)">
+                        <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+                        <input type="password" id="password" placeholder="รหัสผ่าน" required>
+                        <button type="submit">เข้าสู่ระบบ</button>
+                    </form>
+                </div>
+            </div>
+            <script>
+                 // เช็คสถานะล็อกอิน
+        function isLoggedIn() {
+            return localStorage.getItem('isLoggedIn') === 'true';
+        }
+
+        // ฟังก์ชันแจ้งเตือนเมื่อไม่ได้ล็อกอิน
+        function showLoginModal() {
+            const modal = document.getElementById('login-modal');
+            modal.classList.remove('hidden');
+        }
+
+        // ฟังก์ชันปิด Modal
+        function closeLoginModal() {
+            const modal = document.getElementById('login-modal');
+            modal.classList.add('hidden');
+        }
+
+        // ฟังก์ชันจัดการการล็อกอิน
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('เข้าสู่ระบบสำเร็จ!');
+                closeLoginModal();
+            } else {
+                alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+            }
+        }
+
+        // ฟังก์ชันเพิ่มสินค้าไปยังตะกร้า
+        function addToCart(product) {
+            if (!isLoggedIn()) {
+                showLoginModal();
+                return;
+            }
+
+            alert(`เพิ่มสินค้า "${product.name}" จำนวน ${product.quantity || 1} ชิ้นในตะกร้าเรียบร้อยแล้ว!`);
+        }
+
+        // จับ Event ปุ่มเพิ่มตะกร้าและซื้อสินค้า
+        document.querySelectorAll('.add-to-cart').forEach((button) => {
+            button.addEventListener('click', () => {
+                const product = {
+                    id: button.getAttribute('data-id'),
+                    name: button.getAttribute('data-name'),
+                    price: button.getAttribute('data-price'),
+                };
+                addToCart(product);
+            });
+        });
+            </script>
+        
+           
+          <!-- สินค้า2 -->  
+        
+            <div class="product-card">
+                <div class="product-image">
+                    <model-viewer 
+    src="" 
+    alt="3D Model" 
+    ar 
+    auto-rotate 
+    camera-controls 
+    style="width: 0%; height: 0px;">
+</model-viewer>
+<div class="sketchfab-embed-wrapper"> <iframe title="Trojanhorse" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300" 
+    src="https://sketchfab.com/models/b06ad31aa0644766a3847ab772cbfe79/embed?autostart=1&transparent=1"> </iframe> </div>
+                </div>
+                <div class="product-info">
+                    <h3>Trojan Horse</h3>
+                    <p>ราคา: ฿500</p>
+                    <!--เพิ่มปุ่ม-->
+                    <div class="quantity-controls">
+                        <button class="decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="increase">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="add-to-cart" data-id="2" data-name="Trojan Horse" data-price="500">เพิ่มลงตะกร้า</button>
+                        <button class="buy-now" data-id="2" data-name="Trojan Horse" data-price="500">ซื้อสินค้า</button>
+                        <button 
+            class="view-details" 
+            data-image="img/n2.png" 
+            data-name="Trojan Horse" 
+            data-description="ดีไซน์ให้สามารถใช้งานเป็นที่หนีบสายชาร์จได้" 
+            data-price="500">
+            ดูรายละเอียดสินค้า
+        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <script>
+                // ฟังก์ชันเปิด Modal
+function openModal(product) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-product-image");
+    const modalName = document.getElementById("modal-product-name");
+    const modalDescription = document.getElementById("modal-product-description");
+    const modalPrice = document.getElementById("modal-product-price");
+
+    // ตั้งค่าข้อมูลสินค้า
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = `รายละเอียด: ${product.description}`;
+    modalPrice.textContent = `ราคา: ฿${product.price}`;
+
+    // แสดง Modal
+    modal.classList.remove("hidden");
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById("product-modal");
+    modal.classList.add("hidden");
+}
+
+// จับ Event ปุ่มปิด
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+// จับ Event ปุ่ม "ดูรายละเอียดสินค้า"
+document.querySelectorAll(".view-details").forEach((button) => {
+    button.addEventListener("click", () => {
+        const product = {
+            image: button.getAttribute("data-image"),
+            name: button.getAttribute("data-name"),
+            description: button.getAttribute("data-description"),
+            price: button.getAttribute("data-price"),
+        };
+        openModal(product);
+    });
+});
+    </script>
+        
+        <!-- สินค้า3 -->  
+        
+        <div class="product-card">
+            <div class="product-image">
+                <model-viewer 
+src="" 
+alt="3D Model" 
+ar 
+auto-rotate 
+camera-controls 
+style="width: 0%; height: 0px;">
+</model-viewer>
+<div class="sketchfab-embed-wrapper"> <iframe title="Boot Virus" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300" 
+    src="https://sketchfab.com/models/68a403c036f3434197e816d6b334dd99/embed?autostart=1&transparent=1"> </iframe> </div>
+            </div>
+            <div class="product-info">
+                <h3>Boot Virus</h3>
+                <p>ราคา: ฿500</p>
+                <!--เพิ่มปุ่ม-->
+                <div class="quantity-controls">
+                    <button class="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="increase">+</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="add-to-cart" data-id="3" data-name="Boot Virus" data-price="500">เพิ่มลงตะกร้า</button>
+                    <button class="buy-now" data-id="3" data-name="Boot Virus" data-price="500">ซื้อสินค้า</button>
+                    <button 
+            class="view-details" 
+            data-image="img/n3.png" 
+            data-name="Boot Virus" 
+            data-description="ดีไซน์ให้สามารถใช้งานเป็นที่เก็บแฟลชไดร์ฟได้" 
+            data-price="500">
+            ดูรายละเอียดสินค้า
+        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <script>
+                // ฟังก์ชันเปิด Modal
+function openModal(product) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-product-image");
+    const modalName = document.getElementById("modal-product-name");
+    const modalDescription = document.getElementById("modal-product-description");
+    const modalPrice = document.getElementById("modal-product-price");
+
+    // ตั้งค่าข้อมูลสินค้า
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = `รายละเอียด: ${product.description}`;
+    modalPrice.textContent = `ราคา: ฿${product.price}`;
+
+    // แสดง Modal
+    modal.classList.remove("hidden");
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById("product-modal");
+    modal.classList.add("hidden");
+}
+
+// จับ Event ปุ่มปิด
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+// จับ Event ปุ่ม "ดูรายละเอียดสินค้า"
+document.querySelectorAll(".view-details").forEach((button) => {
+    button.addEventListener("click", () => {
+        const product = {
+            image: button.getAttribute("data-image"),
+            name: button.getAttribute("data-name"),
+            description: button.getAttribute("data-description"),
+            price: button.getAttribute("data-price"),
+        };
+        openModal(product);
+    });
+});
+
+            </script>
+        
+
+
+    <!-- สินค้า4-->  
+        
+    <div class="product-card">
+        <div class="product-image">
+            <model-viewer 
+src="" 
+alt="3D Model" 
+ar 
+auto-rotate 
+camera-controls 
+style="width: 0%; height: 0px;">
+</model-viewer>
+<div class="sketchfab-embed-wrapper"> <iframe title="Stealh Virus" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300"
+     src="https://sketchfab.com/models/311879e2289c47e6a742b6cc907df5ee/embed?autostart=1&transparent=1"> </iframe> </div>
+        </div>
+        <div class="product-info">
+            <h3>Stealth Virus</h3>
+            <p>ราคา: ฿500</p>
+            <!--เพิ่มปุ่ม-->
+            <div class="quantity-controls">
+                <button class="decrease">-</button>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="increase">+</button>
+            </div>
+            <div class="action-buttons">
+                <button class="add-to-cart" data-id="4" data-name="Stealth Virus" data-price="500">เพิ่มลงตะกร้า</button>
+                <button class="buy-now" data-id="4" data-name="Stealth Virus" data-price="500">ซื้อสินค้า</button>
+                <button 
+            class="view-details" 
+            data-image="img/n4.png" 
+            data-name="Stealth Virus" 
+            data-description="ดีไซน์ให้สามารถใช้งานเป็นที่หนีบกระดาษโน้ตได้" 
+            data-price="500">
+            ดูรายละเอียดสินค้า
+        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <script>
+                // ฟังก์ชันเปิด Modal
+function openModal(product) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-product-image");
+    const modalName = document.getElementById("modal-product-name");
+    const modalDescription = document.getElementById("modal-product-description");
+    const modalPrice = document.getElementById("modal-product-price");
+
+    // ตั้งค่าข้อมูลสินค้า
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = `รายละเอียด: ${product.description}`;
+    modalPrice.textContent = `ราคา: ฿${product.price}`;
+
+    // แสดง Modal
+    modal.classList.remove("hidden");
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById("product-modal");
+    modal.classList.add("hidden");
+}
+
+// จับ Event ปุ่มปิด
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+// จับ Event ปุ่ม "ดูรายละเอียดสินค้า"
+document.querySelectorAll(".view-details").forEach((button) => {
+    button.addEventListener("click", () => {
+        const product = {
+            image: button.getAttribute("data-image"),
+            name: button.getAttribute("data-name"),
+            description: button.getAttribute("data-description"),
+            price: button.getAttribute("data-price"),
+        };
+        openModal(product);
+    });
+});
+
+            </script>
+    <!-- สินค้า5-->  
+        
+    <div class="product-card">
+        <div class="product-image">
+            <model-viewer 
+src="" 
+alt="3D Model" 
+ar 
+auto-rotate 
+camera-controls 
+style="width: 0%; height: 0px;">
+</model-viewer>
+<div class="sketchfab-embed-wrapper"> <iframe title="File Virus" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300"
+     src="https://sketchfab.com/models/2329db6b9f3d42a1b65362957212e910/embed?autostart=1&transparent=1"> </iframe> </div>
+        </div>
+        <div class="product-info">
+            <h3>File Virus</h3>
+            <p>ราคา: ฿500</p>
+            <!--เพิ่มปุ่ม-->
+            <div class="quantity-controls">
+                <button class="decrease">-</button>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="increase">+</button>
+            </div>
+            <div class="action-buttons">
+                <button class="add-to-cart" data-id="5" data-name="File Virus" data-price="500">เพิ่มลงตะกร้า</button>
+                <button class="buy-now" data-id="5" data-name="File Virus" data-price="500">ซื้อสินค้า</button>
+                <button 
+            class="view-details" 
+            data-image="img/n5.png" 
+            data-name="File Virus" 
+            data-description="ดีไซน์ให้สามารถใช้งานเป็นที่วางปากกา" 
+            data-price="500">
+            ดูรายละเอียดสินค้า
+        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <script>
+                // ฟังก์ชันเปิด Modal
+function openModal(product) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-product-image");
+    const modalName = document.getElementById("modal-product-name");
+    const modalDescription = document.getElementById("modal-product-description");
+    const modalPrice = document.getElementById("modal-product-price");
+
+    // ตั้งค่าข้อมูลสินค้า
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = `รายละเอียด: ${product.description}`;
+    modalPrice.textContent = `ราคา: ฿${product.price}`;
+
+    // แสดง Modal
+    modal.classList.remove("hidden");
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById("product-modal");
+    modal.classList.add("hidden");
+}
+
+// จับ Event ปุ่มปิด
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+// จับ Event ปุ่ม "ดูรายละเอียดสินค้า"
+document.querySelectorAll(".view-details").forEach((button) => {
+    button.addEventListener("click", () => {
+        const product = {
+            image: button.getAttribute("data-image"),
+            name: button.getAttribute("data-name"),
+            description: button.getAttribute("data-description"),
+            price: button.getAttribute("data-price"),
+        };
+        openModal(product);
+    });
+});
+
+            </script>
+     <!-- สินค้า6-->  
+        
+     <div class="product-card">
+        <div class="product-image">
+            <model-viewer 
+src="https://www.pacdora.com/share?filter_url=ps5km37st7" 
+alt="3D Model" 
+ar 
+auto-rotate 
+camera-controls 
+style="width: 0%; height: 0px;">
+</model-viewer>
+
+<div class="sketchfab-embed-wrapper"> <iframe title="ิbox" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="250" height="300" 
+    src="https://sketchfab.com/models/0408733778bc4df2b54b1d89a1791e86/embed?autospin=1&autostart=1&transparent=1"> </iframe> </div>
+        </div>
+        <div class="product-info">
+            <h3>Random Box (Secret)</h3>
+            <p>ราคา: ฿500</p>
+            <!--เพิ่มปุ่ม-->
+            <div class="quantity-controls">
+                <button class="decrease">-</button>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="increase">+</button>
+            </div>
+            <div class="action-buttons">
+                <button class="add-to-cart" data-id="6" data-name="Random Box (Secret)" data-price="500">เพิ่มลงตะกร้า</button>
+                <button class="buy-now" data-id="6" data-name="Random Box (Secret)" data-price="500">ซื้อสินค้า</button>
+                <button 
+            class="view-details" 
+            data-image="img/packshow1.png"
+            data-name="Random Box (Secret)" 
+            data-description="มาลุ้นตัวซีเคร็ทในกล่องนี้กัน!" 
+            data-price="500">
+            ดูรายละเอียดสินค้า
+        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">&times;</button>
+                    <img id="modal-product-image" src="" alt="Product Image">
+                    <h3 id="modal-product-name"></h3>
+                    <p id="modal-product-description"></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <script>
+                // ฟังก์ชันเปิด Modal
+function openModal(product) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-product-image");
+    const modalName = document.getElementById("modal-product-name");
+    const modalDescription = document.getElementById("modal-product-description");
+    const modalPrice = document.getElementById("modal-product-price");
+
+    // ตั้งค่าข้อมูลสินค้า
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = `รายละเอียด: ${product.description}`;
+    modalPrice.textContent = `ราคา: ฿${product.price}`;
+
+    // แสดง Modal
+    modal.classList.remove("hidden");
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById("product-modal");
+    modal.classList.add("hidden");
+}
+
+// จับ Event ปุ่มปิด
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+// จับ Event ปุ่ม "ดูรายละเอียดสินค้า"
+document.querySelectorAll(".view-details").forEach((button) => {
+    button.addEventListener("click", () => {
+        const product = {
+            image: button.getAttribute("data-image"),
+            name: button.getAttribute("data-name"),
+            description: button.getAttribute("data-description"),
+            price: button.getAttribute("data-price"),
+        };
+        openModal(product);
+    });
+});
+
+            </script>
+        
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+<!--เพิ่มสินค้า-->
+<script>
+document.querySelectorAll(".product-card").forEach((card) => {
+    const decreaseButton = card.querySelector(".decrease");
+    const increaseButton = card.querySelector(".increase");
+    const quantityInput = card.querySelector(".quantity");
+    const addToCartButton = card.querySelector(".add-to-cart");
+    const buyNowButton = card.querySelector(".buy-now");
+
+    // ลดจำนวนสินค้า
+    decreaseButton.addEventListener("click", () => {
+        let currentValue = parseInt(quantityInput.value) || 1;
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    });
+
+    // เพิ่มจำนวนสินค้า
+    increaseButton.addEventListener("click", () => {
+        let currentValue = parseInt(quantityInput.value) || 1;
+        quantityInput.value = currentValue + 1;
+    });
+
+    // เพิ่มสินค้าไปยังตะกร้า
+    addToCartButton.addEventListener("click", () => {
+        const productId = addToCartButton.getAttribute("data-id");
+        const productName = addToCartButton.getAttribute("data-name");
+        const productPrice = parseInt(addToCartButton.getAttribute("data-price"));
+        const quantity = parseInt(quantityInput.value) || 1;
+
+        addToCart({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity: quantity,
+        });
+    });
+
+    // ซื้อสินค้าทันที
+    buyNowButton.addEventListener("click", () => {
+        const productId = buyNowButton.getAttribute("data-id");
+        const productName = buyNowButton.getAttribute("data-name");
+        const productPrice = parseInt(buyNowButton.getAttribute("data-price"));
+        const quantity = parseInt(quantityInput.value) || 1;
+
+        // ส่งข้อมูลสินค้าไปหน้าชำระเงิน
+        goToPaymentPage([
+            {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: quantity,
+            },
+        ]);
+    });
+});
+
+// ฟังก์ชันเพิ่มสินค้าไปยังตะกร้า
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.quantity = product.quantity; // อัปเดตจำนวนสินค้า
+    } else {
+        cart.push(product); // เพิ่มสินค้าใหม่
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`เพิ่ม "${product.name}" จำนวน ${product.quantity} ชิ้นลงในตะกร้าแล้ว!`);
+    updateCartCount();
+}
+
+// ฟังก์ชันไปหน้าชำระเงิน
+function goToPaymentPage(products) {
+    const totalAmount = products.reduce((total, item) => total + item.price * item.quantity, 0);
+
+    // เก็บข้อมูลสินค้าที่ซื้อและยอดรวมใน localStorage
+    localStorage.setItem("paymentProducts", JSON.stringify(products));
+    localStorage.setItem("totalAmount", totalAmount);
+
+    // ไปยังหน้าชำระเงิน
+    window.location.href = "payment.html";
+    
+}
+
+</script>
+<!--มะกี้-->
+<script>
+
+
+
+</script>
+
+
+        <!-- ป็อปอัปแจ้งเตือน -->
+        <div id="popup-container" class="hidden">
+            <div class="popup">
+                <h2 id="popup-message"></h2>
+                <button id="close-popup">ปิด</button>
+            </div>
+        </div>
+        
+        <script src="cart.js"></script>
+
+                
+
+                
+       
+        
+        
+        
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="mailto:example@email.com" aria-label="Email">
+                    <img src="img/gmail.png" alt="Email">
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="img/facebook.png" alt="Facebook">
+                </a>
+                <a href="#" target="_blank" aria-label="phone">
+                    <img src="img/phone.png" alt="Facebook">
+                </a>
+            </div>
+
+            
+    
+            <!-- Footer Menu -->
+            <ul class="footer-menu">
+                <li><a href="indexL.html">หน้าหลัก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="work.html">ผลงาน</a></li>
+                <li><a href="products.html">สินค้า</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
+            </ul>
+    
+            <!-- Logo -->
+            <div class="footer-logo">
+                <img src="img/1x/logo4.png" alt="Logo" />
+            </div>
+    
+            <!-- Footer Text -->
+            <p class="footer-text">© 2024 The Antic. All rights reserved.</p>
+    
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="#">Privacy Notice</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Preferences</a>
+            </div>
+        </div>
+    </footer>
+    <style>
+        * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+   
+   /* Variables for Responsiveness */
+   :root {
+       --font-size-large: 2rem;
+       --font-size-medium: 1.2rem;
+       --font-size-small: 1rem;
+       --padding-large: 20px;
+       --padding-medium: 10px;
+       --padding-small: 5px;
+   }
+        /* Responsive Container */
+   .container {
+       width: 100%;
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: var(--padding-large);
+       display: flex;
+       flex-direction: column;
+       gap: var(--padding-medium);
+   }
+   /* Media Queries for All Screens */
+   @media (max-width: 768px) {
+       :root {
+           --font-size-large: 1.5rem;
+           --font-size-medium: 1rem;
+           --padding-large: 15px;
+           --padding-medium: 8px;
+       }
+   
+       header {
+           flex-direction: column;
+       }
+   
+       @media (max-width: 768px) {
+       header nav ul {
+           justify-content: center;
+           display: flex;
+           flex-direction: column;
+       }
+   }
+   
+       .hero-section h1 {
+           font-size: 1.8rem;
+       }
+   }
+   
+   @media (max-width: 480px) {
+       :root {
+           --font-size-large: 1.2rem;
+           --font-size-medium: 0.9rem;
+           --padding-large: 10px;
+           --padding-medium: 5px;
+       }
+   
+       .hero-section h1 {
+           font-size: 1.5rem;
+       }
+   
+       footer {
+           font-size: 0.9rem;
+       }
+   }
+   .hero-section h1 {
+       font-size: var(--font-size-large);
+       margin-bottom: var(--padding-medium);
+   }
+   
+   .hero-section p {
+       font-size: var(--font-size-medium);
+   }
+   
+       </style>
+</body>
+</html>
