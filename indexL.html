@@ -123,11 +123,78 @@
         </video>
         <div class="overlay">
             <div class="about-image">
-                <img src="img/1x/logo4.png" alt="เกี่ยวกับเรา" style="width: 20%; height: auto; object-fit: cover;">
+                <img src="img/1x/logo4.png" alt="เกี่ยวกับเรา" style="width: 45%; height: auto; object-fit: cover;">
+            </div>
+            <div class="banner">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="watch-now-button">Watch</a>
+                <div class="right-text">รับชมได้แล้ววันนี้</div>
             </div>
         </div>
     </div>
-    
+    <style>
+
+
+.watch-now-button {
+    display: inline-block;
+    padding: 12px 59px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+/* เปลี่ยนสีเมื่อโฮเวอร์ */
+.watch-now-button:hover {
+    background: linear-gradient(135deg, #e6c042, #ff0000);
+    color: #fff;
+    transform: scale(1.05); /* ขยายเล็กน้อย */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+        
+.banner .right-text {
+    position: absolute;
+    top: 17%;
+    right: 4%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+        .banner {
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    justify-content: right;
+}
+
+.watch-button img {
+    width: 200px; /* ปรับขนาดรูปภาพ */
+    height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+    border-radius: 10px; /* เพิ่มมุมโค้งให้รูปภาพ */
+    cursor: pointer; /* เปลี่ยนเป็นรูปมือเมื่อชี้ */
+}
+@media (max-width: 768px) {
+    .watch-button img {
+        width: 150px; /* ลดขนาดปุ่มบนหน้าจอเล็ก */
+    }
+}
+
+@media (max-width: 480px) {
+    .watch-button img {
+        width: 100px; /* ลดขนาดปุ่มบนหน้าจอมือถือ */
+    }
+}
+
+    </style>
 </section>
 
     <!-- Home Section -->
